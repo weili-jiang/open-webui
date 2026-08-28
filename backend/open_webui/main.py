@@ -3028,6 +3028,8 @@ if os.path.exists(FRONTEND_BUILD_DIR):
     mimetypes.add_type('text/javascript', '.js')
     pyodide_dir = FRONTEND_BUILD_DIR / 'pyodide'
     if os.path.exists(pyodide_dir):
+        mimetypes.add_type('application/wasm ', '.wasm')
+        mimetypes.add_type('application/javascript', '.mjs')
         app.mount('/pyodide', CORSStaticFiles(directory=pyodide_dir), name='pyodide')
 
     app.mount(
